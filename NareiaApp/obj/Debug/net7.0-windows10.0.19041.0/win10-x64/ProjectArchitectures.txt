@@ -1,1 +1,0 @@
-C:\Users\Grillo\source\repos\NareiaApp\NareiaApp\NareiaApp.csproj;x64
