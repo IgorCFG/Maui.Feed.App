@@ -8,16 +8,13 @@
     <DefaultDevice>pixel_5_-_api_30</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Views\Custom\DailyFeedCollectionView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\Custom\FeedActionBar.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Views\Custom\FeedItemView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\Custom\FeedSwitcher.xaml">
+    <MauiXaml Update="Views\Pages\StrategyPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Pages\IdeasPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

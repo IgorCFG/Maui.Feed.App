@@ -1,10 +1,9 @@
 ﻿using NareiaApp.Abstractions.ViewModels;
-using NareiaApp.Models;
 using NareiaApp.ViewModels;
 
 namespace NareiaApp.Views;
 
-public partial class MainPage : ContentPage
+public partial class MainPage : TabbedPage
 {
     public MainPage(IMainPageViewModel mainPageViewModel)
 	{
@@ -16,7 +15,7 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
         
-        await (BindingContext as MainPageViewModel).GetFeedItemsAsync();
+        await (BindingContext as MainPageViewModel).GetDailyItemsAsync();
     }
 }
 

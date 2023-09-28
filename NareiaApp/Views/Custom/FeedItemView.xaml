@@ -11,7 +11,7 @@
     <VerticalStackLayout>
 
         <Label
-            Text="{Binding Title}"
+            Text="{x:Bind Title}"
             TextColor="{DynamicResource Primary}"
             FontFamily="LatoBold"
             FontSize="24"
@@ -25,14 +25,14 @@
                 WidthRequest="32"
                 HeightRequest="32"
                 DownsampleToViewSize="true"
-                Source="{Binding User.PictureUrl}">
+                Source="{x:Bind User.PictureUrl}">
                 <ffimageloading:CachedImage.Transformations>
                     <fftransformations:CircleTransformation/>
                 </ffimageloading:CachedImage.Transformations>
             </ffimageloading:CachedImage>
 
             <Label
-                Text="{Binding User.Name}"
+                Text="{x:Bind User.Name}"
                 FontFamily="LatoBold"
                 FontSize="16"
                 VerticalTextAlignment="Center"/>
@@ -42,7 +42,7 @@
                 HeightRequest="16"
                 DownsampleToViewSize="true"
                 Source="ic_verified.png"
-                IsVisible="{Binding User.IsVerified}"/>
+                IsVisible="{x:Bind User.IsVerified}"/>
 
         </HorizontalStackLayout>
 
@@ -50,12 +50,15 @@
             HeightRequest="400"
             CornerRadius="0"
             Padding="0"
-            Margin="0">
+            Margin="0"
+            HasShadow="False">
 
             <ffimageloading:CachedImage
                 Aspect="AspectFill"
 			    DownsampleToViewSize="true"
-                Source="{Binding PhotoUrl}"/>
+                FadeAnimationEnabled="False"
+                FadeAnimationForCachedImages="False"
+                Source="{x:Bind PhotoUrl}"/>
 
         </Frame>
 
@@ -65,19 +68,74 @@
             <Label.FormattedText>
                 <FormattedString>
                     <Span 
-                        Text="{Binding User.Name}"
+                        Text="{x:Bind Path=User.Name}"
                         FontFamily="LatoBold"
                         TextColor="{DynamicResource Primary}"/>
                     <Span 
-                        Text="{Binding Path=Description, StringFormat=' {0}'}"
+                        Text="{x:Bind Path=Description, StringFormat=' {0}'}"
                         FontFamily="Lato"
                         TextColor="{DynamicResource Secondary}" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
 
-        <views:FeedActionBar 
-            Margin="12,0"/>
+        <Grid
+            Margin="12,0"
+            HeightRequest="38"
+            ColumnDefinitions="64,*,201,*,64">
 
+            <ImageButton
+                Grid.Column="0"
+                BorderWidth="1"
+                BorderColor="{DynamicResource Border_L2}"
+                CornerRadius="12"
+                Source="ic_refresh"
+                Aspect="Center"/>
+
+            <Border
+                Grid.Column="2"
+                Stroke="{DynamicResource Border_L2}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+
+                <Border.Content>
+
+                    <Grid
+                        ColumnDefinitions="100, 1, 100">
+
+                        <Image
+                            Grid.Column="0"
+                            Source="ic_like"
+                            Aspect="Center"/>
+
+                        <BoxView
+                            Grid.Column="1"
+                            WidthRequest="1"
+                            Color="{DynamicResource Border_L2}"/>
+
+                        <Image
+                            Grid.Column="2"
+                            Source="ic_dislike"
+                            Aspect="Center"/>
+
+                    </Grid>
+
+                </Border.Content>
+
+            </Border>
+
+            <ImageButton
+                Grid.Column="4"
+                BorderWidth="1"
+                BorderColor="{DynamicResource Border_L2}"
+                CornerRadius="12"
+                Source="ic_bookmark"
+                Aspect="Center"/>
+
+        </Grid>
+        
     </VerticalStackLayout>
 </ContentView>

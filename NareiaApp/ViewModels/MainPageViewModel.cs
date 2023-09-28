@@ -1,7 +1,9 @@
 ﻿using NareiaApp.Abstractions.Models;
 using NareiaApp.Abstractions.Services;
 using NareiaApp.Abstractions.ViewModels;
+using NareiaApp.Models;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace NareiaApp.ViewModels
 {
@@ -19,7 +21,13 @@ namespace NareiaApp.ViewModels
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<IFeedItem> ItemsSource { get; set; }
+        public ObservableRangeCollection<IFeedItem> ItemsSource { get; set; }
+
+        public IAsyncCommand DailyCommand =>
+            new AsyncCommand(GetDailyItemsAsync);
+
+        public IAsyncCommand FavoritesCommand =>
+            new AsyncCommand(GetFavoriteItemsAsync);
 
         //public bool IsBusy
         //{
@@ -39,21 +47,23 @@ namespace NareiaApp.ViewModels
         {
             _feedService = feedService;
 
-            ItemsSource = new ObservableCollection<IFeedItem>();
+            ItemsSource = new ObservableRangeCollection<IFeedItem>();
         }
 
         #endregion
 
         #region Public Methods
 
-        public async Task GetFeedItemsAsync()
+        public async Task GetDailyItemsAsync()
         {
             var dailyFeed = await _feedService.GetDailyFeedAsync().ConfigureAwait(false);
+            MainThread.BeginInvokeOnMainThread(() => ItemsSource.AddRange(dailyFeed));
+        }
 
-            for (int i = 0; i < dailyFeed.Count(); i++)
-            {
-                ItemsSource.Add(dailyFeed.ElementAt(i));
-            }
+        public Task GetFavoriteItemsAsync()
+        {
+            ItemsSource.ReplaceRange(new List<IFeedItem>());
+            return Task.CompletedTask;
         }
 
         #endregion

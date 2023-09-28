@@ -1,21 +1,20 @@
-using Microsoft.Maui.Graphics;
 using System.Windows.Input;
 
-namespace NareiaApp.Views.Custom;
+namespace NareiaApp.Views.Pages;
 
-public partial class FeedSwitcher : Frame
+public partial class IdeasPage : ContentPage
 {
     #region Bindable Properties
 
     public static readonly BindableProperty DailyCommandProperty = BindableProperty.Create(
         propertyName: nameof(DailyCommand),
         returnType: typeof(ICommand),
-        declaringType: typeof(FeedSwitcher));
+        declaringType: typeof(IdeasPage));
 
     public static readonly BindableProperty FavoriteCommandProperty = BindableProperty.Create(
         propertyName: nameof(FavoriteCommand),
         returnType: typeof(ICommand),
-        declaringType: typeof(FeedSwitcher));
+        declaringType: typeof(IdeasPage));
 
     #endregion
 
@@ -37,7 +36,7 @@ public partial class FeedSwitcher : Frame
 
     #region Constructors
 
-    public FeedSwitcher()
+    public IdeasPage()
 	{
 		InitializeComponent();
     }
@@ -46,21 +45,21 @@ public partial class FeedSwitcher : Frame
 
     #region Click Events
 
-    private void OnDailyClicked(object sender, EventArgs e)
-    {
-        DailyCommand?.Execute(null);
+    //private void OnDailyClicked(object sender, EventArgs e)
+    //{
+    //    DailyCommand?.Execute(null);
 
-        btDaily.BackgroundColor = Color.Parse("#FFF");
-        btFav.BackgroundColor = Color.Parse("#00FFFFFF");
-    }
+    //    btDaily.BackgroundColor = Color.Parse("#FFF");
+    //    btFav.BackgroundColor = Color.Parse("#00FFFFFF");
+    //}
 
-    private void OnFavClicked(object sender, EventArgs e)
-    {
-        FavoriteCommand?.Execute(null);
+    //private void OnFavClicked(object sender, EventArgs e)
+    //{
+    //    FavoriteCommand?.Execute(null);
 
-        btDaily.BackgroundColor = Color.Parse("#00FFFFFF");
-        btFav.BackgroundColor = Color.Parse("#FFF");
-    }
+    //    btDaily.BackgroundColor = Color.Parse("#00FFFFFF");
+    //    btFav.BackgroundColor = Color.Parse("#FFF");
+    //}
 
     #endregion
 }

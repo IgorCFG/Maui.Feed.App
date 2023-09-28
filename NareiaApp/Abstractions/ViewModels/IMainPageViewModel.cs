@@ -2,6 +2,6 @@
 {
     public interface IMainPageViewModel
     {
-        Task GetFeedItemsAsync();
+        Task GetDailyItemsAsync();
     }
 }

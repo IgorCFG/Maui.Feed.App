@@ -33,11 +33,7 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-		<MauiImage Include="Resources\AppIcon\ic_bookmark.svg" />
-		<MauiImage Include="Resources\AppIcon\ic_dislike.svg" />
 		<MauiImage Include="Resources\AppIcon\ic_instagram.png" />
-    <MauiImage Include="Resources\AppIcon\ic_like.svg" />
-    <MauiImage Include="Resources\AppIcon\ic_refresh.svg" />
 		<MauiImage Include="Resources\AppIcon\ic_verified.png" />
 
     <!-- Splash Screen -->
@@ -65,27 +61,31 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
+		<PackageReference Include="CompiledBindings.MAUI" Version="1.0.17.6" />
 		<PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Custom\FeedSwitcher.xaml.cs">
-	    <DependentUpon>FeedSwitcher.xaml</DependentUpon>
+	  <Compile Update="Views\Custom\SegmentedControl.xaml.cs">
+	    <DependentUpon>SegmentedControl.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Pages\StrategyPage.xaml.cs">
+	    <DependentUpon>StrategyPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Pages\IdeasPage.xaml.cs">
+	    <DependentUpon>IdeasPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Custom\DailyFeedCollectionView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Custom\FeedActionBar.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\Custom\FeedItemView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Custom\FeedSwitcher.xaml">
+	  <MauiXaml Update="Views\Pages\StrategyPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\IdeasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -7,6 +7,7 @@
     <Color x:Key="Primary">#002544</Color>
     <Color x:Key="Secondary">#2E4C66</Color>
     <Color x:Key="Tertiary">#576F84</Color>
+    <Color x:Key="Quartiary">#A3B1BC</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
@@ -40,5 +41,8 @@
     <Color x:Key="Blue100Accent">#3E8EED</Color>
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
+    
+    <!-- Figma Colors -->
+    <Color x:Key="Border_L2">#25442100</Color>
 
 </ResourceDictionary>
