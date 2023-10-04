@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.ComponentModel;
 
-namespace NareiaApp.Collections
+namespace Maui.Feed.App.Collections
 {
     public class ObservableRangeCollection<T> : ObservableCollection<T>
     {

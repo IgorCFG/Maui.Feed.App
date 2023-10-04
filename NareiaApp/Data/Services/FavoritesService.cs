@@ -1,13 +1,13 @@
 ﻿#nullable enable
 
-using NareiaApp.Abstractions.Services;
-using NareiaApp.Data.Models;
-using NareiaApp.Infrastructure.Abstractions;
-using NareiaApp.Infrastructure.Constants;
+using Maui.Feed.App.Abstractions.Services;
+using Maui.Feed.App.Data.Models;
+using Maui.Feed.App.Infrastructure.Abstractions;
+using Maui.Feed.App.Infrastructure.Constants;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace NareiaApp.Data.Services
+namespace Maui.Feed.App.Data.Services
 {
     public class FavoritesService : IFavoritesService
     {

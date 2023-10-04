@@ -1,4 +1,4 @@
-﻿namespace NareiaApp.Infrastructure.Constants
+﻿namespace Maui.Feed.App.Infrastructure.Constants
 {
     public static class Constants
     {

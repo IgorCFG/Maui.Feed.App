@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace NareiaApp.Abstractions.Models
+namespace Maui.Feed.App.Abstractions.Models
 {
     public interface IAsyncCommand<T> : ICommand
     {

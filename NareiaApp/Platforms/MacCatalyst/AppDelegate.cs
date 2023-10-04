@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace NareiaApp;
+namespace Maui.Feed.App;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

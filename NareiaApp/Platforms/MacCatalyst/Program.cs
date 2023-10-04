@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace NareiaApp;
+namespace Maui.Feed.App;
 
 public class Program
 {

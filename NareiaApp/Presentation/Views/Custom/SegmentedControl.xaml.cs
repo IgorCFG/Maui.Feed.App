@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace NareiaApp.Views.Custom;
+namespace Maui.Feed.App.Views.Custom;
 
 public partial class SegmentedControl : Frame
 {

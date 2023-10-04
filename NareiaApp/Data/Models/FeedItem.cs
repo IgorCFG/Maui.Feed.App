@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace NareiaApp.Data.Models
+namespace Maui.Feed.App.Data.Models
 {
     public class FeedItem
     {

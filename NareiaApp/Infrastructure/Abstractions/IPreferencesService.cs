@@ -1,4 +1,4 @@
-﻿namespace NareiaApp.Abstractions.Services
+﻿namespace Maui.Feed.App.Abstractions.Services
 {
     public interface IPreferencesService
     {

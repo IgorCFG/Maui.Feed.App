@@ -1,4 +1,4 @@
-﻿namespace NareiaApp;
+﻿namespace Maui.Feed.App;
 
 public partial class AppShell : Shell
 {

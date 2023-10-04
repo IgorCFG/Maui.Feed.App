@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace NareiaApp;
+namespace Maui.Feed.App;
 
 [Application]
 public class MainApplication : MauiApplication

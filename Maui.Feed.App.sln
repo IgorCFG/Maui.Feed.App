@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NareiaApp", "NareiaApp\NareiaApp.csproj", "{1E60ECED-F0A6-4091-988C-3A193B8FE1FC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NareiaApp.Tests", "NareiaApp.Tests\NareiaApp.Tests.csproj", "{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.Feed.App", "NareiaApp\Maui.Feed.App.csproj", "{1E60ECED-F0A6-4091-988C-3A193B8FE1FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +25,6 @@ Global
 		{1E60ECED-F0A6-4091-988C-3A193B8FE1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E60ECED-F0A6-4091-988C-3A193B8FE1FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E60ECED-F0A6-4091-988C-3A193B8FE1FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.@Api|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.@Api|Any CPU.Build.0 = Debug|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.@Mock|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.@Mock|Any CPU.Build.0 = Debug|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8F09A65-4A7C-4929-92CD-0EBDFFAE77AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

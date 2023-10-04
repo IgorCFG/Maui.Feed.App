@@ -1,17 +1,17 @@
 ﻿#nullable enable
 
-using NareiaApp.Abstractions.Models;
-using NareiaApp.Abstractions.Services;
-using NareiaApp.Abstractions.ViewModels;
-using NareiaApp.Collections;
-using NareiaApp.Data.Models;
-using NareiaApp.Infrastructure.Abstractions;
-using NareiaApp.Presentation.Enums;
+using Maui.Feed.App.Abstractions.Models;
+using Maui.Feed.App.Abstractions.Services;
+using Maui.Feed.App.Abstractions.ViewModels;
+using Maui.Feed.App.Collections;
+using Maui.Feed.App.Data.Models;
+using Maui.Feed.App.Infrastructure.Abstractions;
+using Maui.Feed.App.Presentation.Enums;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace NareiaApp.Presentation.ViewModels
+namespace Maui.Feed.App.Presentation.ViewModels
 {
     public class MainPageViewModel : IMainPageViewModel
     {
@@ -22,6 +22,7 @@ namespace NareiaApp.Presentation.ViewModels
 
         private bool isBusy;
         private bool isLoadingFakeData;
+        private int tab;
 
         #endregion
 
@@ -63,7 +64,15 @@ namespace NareiaApp.Presentation.ViewModels
             }
         }
 
-        public IdeasTab Tab { get; set; }
+        public int Tab
+        {
+            get => tab;
+            set
+            {
+                tab = value;
+                OnPropertyChanged(nameof(Tab));
+            }
+        }
 
         #endregion
 
@@ -88,11 +97,6 @@ namespace NareiaApp.Presentation.ViewModels
             return LoadDailyTabAsync();
         }
 
-        public bool IsDailyTab()
-        {
-            return Tab == IdeasTab.Daily;
-        }
-
         #endregion
 
         #region Private Methods
@@ -104,7 +108,7 @@ namespace NareiaApp.Presentation.ViewModels
             try
             {
                 IsBusy = true;
-                Tab = IdeasTab.Daily;
+                Tab = (int)IdeasTab.Daily;
 
                 var dailyFeed = await _feedService.GetDailyFeedAsync().ConfigureAwait(false);
 
@@ -130,7 +134,7 @@ namespace NareiaApp.Presentation.ViewModels
             try
             {
                 IsBusy = true;
-                Tab = IdeasTab.Favorites;
+                Tab = (int)IdeasTab.Favorites;
 
                 var favorites = _favoritesService.GetFavorites()?.Items ?? new List<FeedItem>();
 
@@ -198,6 +202,11 @@ namespace NareiaApp.Presentation.ViewModels
                 return Task.CompletedTask;
 
             return LoadFavoriteTabAsync();
+        }
+
+        private bool IsDailyTab()
+        {
+            return Tab == (int)IdeasTab.Daily;
         }
 
         private void OnPropertyChanged(string propertyName)

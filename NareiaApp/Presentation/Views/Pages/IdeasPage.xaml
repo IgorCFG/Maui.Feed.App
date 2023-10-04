@@ -1,271 +1,230 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="NareiaApp.Views.Pages.IdeasPage"
+    x:Class="Maui.Feed.App.Views.Pages.IdeasPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:enums="clr-namespace:NareiaApp.Presentation.Enums"
+    xmlns:enums="clr-namespace:Maui.Feed.App.Presentation.Enums"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Compat.Transformations"
-    xmlns:models="clr-namespace:NareiaApp.Data.Models"
+    xmlns:models="clr-namespace:Maui.Feed.App.Data.Models"
     xmlns:mx="http://compiledbindings.com/x"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:views="clr-namespace:NareiaApp.Views.Custom"
-    xmlns:vm="clr-namespace:NareiaApp.Presentation.ViewModels"
+    xmlns:views="clr-namespace:Maui.Feed.App.Views.Custom"
+    xmlns:vm="clr-namespace:Maui.Feed.App.Presentation.ViewModels"
     x:Name="_ideasPage"
     Title="Ideas"
     x:DataType="vm:MainPageViewModel"
     IconImageSource="bard_fill">
 
-    <Grid CompressedLayout.IsHeadless="True">
+    <Grid CompressedLayout.IsHeadless="True" RowDefinitions="42, *">
 
-        <Grid
-            CompressedLayout.IsHeadless="True"
-            RowDefinitions="52, *"
-            RowSpacing="12">
+        <ActivityIndicator
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            IsRunning="{x:Bind IsBusy}"
+            IsVisible="{x:Bind IsBusy}"
+            VerticalOptions="CenterAndExpand"
+            Color="{DynamicResource Primary}" />
 
-            <views:SegmentedControl
-                Grid.Row="0"
-                Margin="16,16,16,0"
-                FirstOptionCommand="{x:Bind DailyCommand, Mode=OneTime}"
-                FirstOptionName="Daily"
-                SecondOptionCommand="{x:Bind FavoritesCommand, Mode=OneTime}"
-                SecondOptionName="Favorites" />
+        <views:SegmentedControl
+            Grid.Row="0"
+            Margin="16,0"
+            FirstOptionCommand="{x:Bind DailyCommand, Mode=OneTime}"
+            FirstOptionName="Daily"
+            IsVisible="{x:Bind not IsBusy}"
+            SecondOptionCommand="{x:Bind FavoritesCommand, Mode=OneTime}"
+            SecondOptionName="Favorites" />
 
-            <ActivityIndicator
-                Grid.Row="1"
-                HorizontalOptions="CenterAndExpand"
-                IsRunning="{x:Bind IsBusy}"
-                IsVisible="{x:Bind IsBusy}"
-                VerticalOptions="CenterAndExpand"
-                Color="{DynamicResource Primary}" />
+        <CollectionView
+            Grid.Row="1"
+            Margin="0,16,0,0"
+            IsVisible="{x:Bind not IsBusy}"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemsSource="{x:Bind ItemsSource, IsItemsSource=True}"
+            RemainingItemsThreshold="6"
+            RemainingItemsThresholdReachedCommand="{x:Bind LoadFakeDataCommand, Mode=OneTime}">
 
-            <CollectionView
-                Grid.Row="1"
-                IsVisible="{x:Bind not IsBusy}"
-                ItemSizingStrategy="MeasureAllItems"
-                ItemsSource="{x:Bind ItemsSource, IsItemsSource=True}"
-                RemainingItemsThreshold="6"
-                RemainingItemsThresholdReachedCommand="{x:Bind LoadFakeDataCommand, Mode=OneTime}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="32" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
 
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="32" Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
 
-                <CollectionView.EmptyView>
+                <DataTemplate x:DataType="models:FeedItem">
 
-                    <StackLayout
-                        Padding="16"
-                        CompressedLayout.IsHeadless="True"
-                        Orientation="Vertical"
-                        Spacing="12"
-                        VerticalOptions="Start">
-
-                        <Image
-                            HeightRequest="56"
-                            Source="bard_fill"
-                            WidthRequest="56" />
+                    <VerticalStackLayout>
 
                         <Label
+                            Margin="16,0"
                             FontFamily="LatoBold"
-                            FontSize="18"
-                            HorizontalTextAlignment="Center"
-                            Text="Ideas storage"
+                            FontSize="24"
+                            Text="{x:Bind Title}"
                             TextColor="{DynamicResource Primary}" />
 
-                        <Label
-                            FontFamily="Lato"
-                            FontSize="14"
-                            HorizontalTextAlignment="Center"
-                            Text="Store here Ideas you like from Daily section or self generated content"
-                            TextColor="{DynamicResource Tertiary}" />
+                        <HorizontalStackLayout
+                            Padding="16"
+                            CompressedLayout.IsHeadless="True"
+                            Spacing="8">
 
-                    </StackLayout>
-
-                </CollectionView.EmptyView>
-
-                <CollectionView.Header>
-
-                    <StackLayout
-                        CompressedLayout.IsHeadless="True"
-                        Orientation="Vertical"
-                        Spacing="12">
-
-                        <Label
-                            Margin="16,0"
-                            FontFamily="Lato"
-                            FontSize="12"
-                            IsVisible="{x:Bind IsDailyTab() and ItemsSource.Count is gt 0}"
-                            Text="Expires in 23:56"
-                            TextColor="{DynamicResource Tertiary}" />
-
-                        <Label
-                            Margin="16,0"
-                            FontFamily="Lato"
-                            FontSize="16"
-                            IsVisible="{x:Bind IsDailyTab() and ItemsSource.Count is gt 0}"
-                            Text="Find daily ideas for your inspiration"
-                            TextColor="{DynamicResource Secondary}" />
-
-                    </StackLayout>
-
-                </CollectionView.Header>
-
-                <CollectionView.ItemTemplate>
-
-                    <DataTemplate x:DataType="models:FeedItem">
-
-                        <VerticalStackLayout>
+                            <ffimageloading:CachedImage
+                                DownsampleToViewSize="true"
+                                HeightRequest="32"
+                                Source="{x:Bind User.PictureUrl}"
+                                WidthRequest="32">
+                                <ffimageloading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffimageloading:CachedImage.Transformations>
+                            </ffimageloading:CachedImage>
 
                             <Label
-                                Margin="12,0"
                                 FontFamily="LatoBold"
-                                FontSize="24"
-                                Text="{x:Bind Title}"
-                                TextColor="{DynamicResource Primary}" />
+                                FontSize="16"
+                                Text="{x:Bind User.Name}"
+                                VerticalTextAlignment="Center" />
 
-                            <HorizontalStackLayout
-                                Padding="12"
-                                CompressedLayout.IsHeadless="True"
-                                Spacing="8">
+                            <ffimageloading:CachedImage
+                                DownsampleToViewSize="true"
+                                HeightRequest="16"
+                                IsVisible="{x:Bind User.IsVerified}"
+                                Source="ic_verified.png"
+                                WidthRequest="16" />
 
-                                <ffimageloading:CachedImage
-                                    DownsampleToViewSize="true"
-                                    HeightRequest="32"
-                                    Source="{x:Bind User.PictureUrl}"
-                                    WidthRequest="32">
-                                    <ffimageloading:CachedImage.Transformations>
-                                        <fftransformations:CircleTransformation />
-                                    </ffimageloading:CachedImage.Transformations>
-                                </ffimageloading:CachedImage>
+                        </HorizontalStackLayout>
 
-                                <Label
-                                    FontFamily="LatoBold"
-                                    FontSize="16"
-                                    Text="{x:Bind User.Name}"
-                                    VerticalTextAlignment="Center" />
+                        <Frame
+                            Margin="0"
+                            Padding="0"
+                            CompressedLayout.IsHeadless="True"
+                            CornerRadius="0"
+                            HasShadow="False"
+                            HeightRequest="400">
 
-                                <ffimageloading:CachedImage
-                                    DownsampleToViewSize="true"
-                                    HeightRequest="16"
-                                    IsVisible="{x:Bind User.IsVerified}"
-                                    Source="ic_verified.png"
-                                    WidthRequest="16" />
+                            <ffimageloading:CachedImage
+                                Aspect="AspectFill"
+                                DownsampleToViewSize="true"
+                                FadeAnimationEnabled="False"
+                                Source="{x:Bind PhotoUrl}" />
 
-                            </HorizontalStackLayout>
+                        </Frame>
 
-                            <Frame
-                                Margin="0"
-                                Padding="0"
-                                CompressedLayout.IsHeadless="True"
-                                CornerRadius="0"
-                                HasShadow="False"
-                                HeightRequest="400">
+                        <Label Padding="12" FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="LatoBold"
+                                        Text="{x:Bind Path=User.Name}"
+                                        TextColor="{DynamicResource Primary}" />
+                                    <Span
+                                        FontFamily="Lato"
+                                        Text="{x:Bind Path=Description, StringFormat=' {0}'}"
+                                        TextColor="{DynamicResource Secondary}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                                <ffimageloading:CachedImage
-                                    Aspect="AspectFill"
-                                    DownsampleToViewSize="true"
-                                    FadeAnimationEnabled="False"
-                                    Source="{x:Bind PhotoUrl}" />
+                        <Grid
+                            Margin="12,0"
+                            ColumnDefinitions="64,*,201,*,64"
+                            CompressedLayout.IsHeadless="True"
+                            HeightRequest="38">
 
-                            </Frame>
+                            <ImageButton
+                                Grid.Column="0"
+                                Aspect="Center"
+                                BorderColor="{DynamicResource BorderL2}"
+                                BorderWidth="1"
+                                CornerRadius="12"
+                                Source="ic_refresh" />
 
-                            <Label Padding="12" FontSize="16">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span
-                                            FontFamily="LatoBold"
-                                            Text="{x:Bind Path=User.Name}"
-                                            TextColor="{DynamicResource Primary}" />
-                                        <Span
-                                            FontFamily="Lato"
-                                            Text="{x:Bind Path=Description, StringFormat=' {0}'}"
-                                            TextColor="{DynamicResource Secondary}" />
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
+                            <Border
+                                Grid.Column="2"
+                                Stroke="{DynamicResource BorderL2}"
+                                StrokeThickness="1">
 
-                            <Grid
-                                Margin="12,0"
-                                ColumnDefinitions="64,*,201,*,64"
-                                CompressedLayout.IsHeadless="True"
-                                HeightRequest="38">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12" />
+                                </Border.StrokeShape>
 
-                                <ImageButton
-                                    Grid.Column="0"
-                                    Aspect="Center"
-                                    BorderColor="{DynamicResource BorderL2}"
-                                    BorderWidth="1"
-                                    CornerRadius="12"
-                                    Source="ic_refresh" />
+                                <Border.Content>
 
-                                <Border
-                                    Grid.Column="2"
-                                    Stroke="{DynamicResource BorderL2}"
-                                    StrokeThickness="1">
+                                    <Grid ColumnDefinitions="100, 1, 100" CompressedLayout.IsHeadless="True">
 
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="12" />
-                                    </Border.StrokeShape>
+                                        <Image
+                                            Grid.Column="0"
+                                            Aspect="Center"
+                                            Source="ic_like" />
 
-                                    <Border.Content>
+                                        <BoxView
+                                            Grid.Column="1"
+                                            WidthRequest="1"
+                                            Color="{DynamicResource BorderL2}" />
 
-                                        <Grid ColumnDefinitions="100, 1, 100" CompressedLayout.IsHeadless="True">
+                                        <Image
+                                            Grid.Column="2"
+                                            Aspect="Center"
+                                            Source="ic_dislike" />
 
-                                            <Image
-                                                Grid.Column="0"
-                                                Aspect="Center"
-                                                Source="ic_like" />
+                                    </Grid>
 
-                                            <BoxView
-                                                Grid.Column="1"
-                                                WidthRequest="1"
-                                                Color="{DynamicResource BorderL2}" />
+                                </Border.Content>
 
-                                            <Image
-                                                Grid.Column="2"
-                                                Aspect="Center"
-                                                Source="ic_dislike" />
+                            </Border>
 
-                                        </Grid>
+                            <ImageButton
+                                Grid.Column="4"
+                                Aspect="Center"
+                                BorderColor="{DynamicResource BorderL2}"
+                                BorderWidth="1"
+                                Clicked="OnBookmarkClicked"
+                                CommandParameter="{x:Bind this}"
+                                CornerRadius="12"
+                                Source="ic_bookmark" />
 
-                                    </Border.Content>
+                        </Grid>
 
-                                </Border>
+                    </VerticalStackLayout>
 
-                                <ImageButton
-                                    Grid.Column="4"
-                                    Aspect="Center"
-                                    BorderColor="{DynamicResource BorderL2}"
-                                    BorderWidth="1"
-                                    Clicked="OnBookmarkClicked"
-                                    CommandParameter="{x:Bind this}"
-                                    CornerRadius="12"
-                                    Source="ic_bookmark" />
+                </DataTemplate>
 
-                            </Grid>
+            </CollectionView.ItemTemplate>
 
-                        </VerticalStackLayout>
+            <CollectionView.EmptyView>
 
-                    </DataTemplate>
+                <StackLayout
+                    Margin="0,-64,0,0"
+                    Padding="16"
+                    CompressedLayout.IsHeadless="True"
+                    Orientation="Vertical"
+                    Spacing="12"
+                    VerticalOptions="Center">
 
-                </CollectionView.ItemTemplate>
+                    <Image
+                        HeightRequest="56"
+                        Source="bard_fill"
+                        WidthRequest="56" />
 
-                <CollectionView.Footer>
+                    <Label
+                        FontFamily="LatoBold"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="Ideas storage"
+                        TextColor="{DynamicResource Primary}" />
 
-                    <ActivityIndicator
-                        HorizontalOptions="CenterAndExpand"
-                        IsRunning="{x:Bind IsLoadingFakeData}"
-                        IsVisible="{x:Bind IsLoadingFakeData}"
-                        VerticalOptions="CenterAndExpand"
-                        Color="{DynamicResource Primary}" />
+                    <Label
+                        FontFamily="Lato"
+                        FontSize="14"
+                        HorizontalTextAlignment="Center"
+                        Text="Store here Ideas you like from Daily section or self generated content"
+                        TextColor="{DynamicResource Tertiary}" />
 
-                </CollectionView.Footer>
+                </StackLayout>
 
-            </CollectionView>
+            </CollectionView.EmptyView>
 
-        </Grid>
+        </CollectionView>
 
         <ImageButton
+            Grid.RowSpan="2"
             Padding="12"
             Background="{DynamicResource FloatingButtonGradient}"
             BorderColor="Transparent"

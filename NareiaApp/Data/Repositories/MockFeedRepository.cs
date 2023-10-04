@@ -1,9 +1,9 @@
-﻿using NareiaApp.Abstractions.Repositories;
-using NareiaApp.Data.Models;
+﻿using Maui.Feed.App.Abstractions.Repositories;
+using Maui.Feed.App.Data.Models;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace NareiaApp.Repositories
+namespace Maui.Feed.App.Repositories
 {
     public class MockFeedRepository : IFeedRepository
     {

@@ -1,9 +1,9 @@
-﻿using NareiaApp.Abstractions.Models;
-using NareiaApp.Extensions;
+﻿using Maui.Feed.App.Abstractions.Models;
+using Maui.Feed.App.Extensions;
 using System.Reflection;
 using System.Windows.Input;
 
-namespace NareiaApp.Collections;
+namespace Maui.Feed.App.Collections;
 
 /// <summary>
 /// Based on <see href="https://github.com/brminnick/AsyncAwaitBestPractices"/>

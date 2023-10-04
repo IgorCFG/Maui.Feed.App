@@ -1,4 +1,4 @@
-namespace NareiaApp.Views.Pages;
+namespace Maui.Feed.App.Views.Pages;
 
 public partial class StrategyPage : ContentPage
 {

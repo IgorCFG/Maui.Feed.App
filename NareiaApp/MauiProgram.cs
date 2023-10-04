@@ -1,18 +1,18 @@
 ﻿using CommunityToolkit.Maui;
 using FFImageLoading.Maui;
 using Microsoft.Extensions.Logging;
-using NareiaApp.Abstractions.Repositories;
-using NareiaApp.Abstractions.Services;
-using NareiaApp.Abstractions.ViewModels;
-using NareiaApp.Data.Services;
-using NareiaApp.Infrastructure.Abstractions;
-using NareiaApp.Infrastructure.Constants;
-using NareiaApp.Presentation.ViewModels;
-using NareiaApp.Repositories;
-using NareiaApp.Views;
+using Maui.Feed.App.Abstractions.Repositories;
+using Maui.Feed.App.Abstractions.Services;
+using Maui.Feed.App.Abstractions.ViewModels;
+using Maui.Feed.App.Data.Services;
+using Maui.Feed.App.Infrastructure.Abstractions;
+using Maui.Feed.App.Infrastructure.Constants;
+using Maui.Feed.App.Presentation.ViewModels;
+using Maui.Feed.App.Repositories;
+using Maui.Feed.App.Views;
 using Refit;
 
-namespace NareiaApp;
+namespace Maui.Feed.App;
 
 public static class MauiProgram
 {

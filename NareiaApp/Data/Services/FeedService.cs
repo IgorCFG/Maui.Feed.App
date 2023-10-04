@@ -1,11 +1,11 @@
 ﻿#nullable enable
 
-using NareiaApp.Abstractions.Repositories;
-using NareiaApp.Abstractions.Services;
-using NareiaApp.Data.Models;
+using Maui.Feed.App.Abstractions.Repositories;
+using Maui.Feed.App.Abstractions.Services;
+using Maui.Feed.App.Data.Models;
 using System.Diagnostics;
 
-namespace NareiaApp.Data.Services
+namespace Maui.Feed.App.Data.Services
 {
     public class FeedService : IFeedService
     {

@@ -1,4 +1,4 @@
-﻿namespace NareiaApp.Extensions
+﻿namespace Maui.Feed.App.Extensions
 {
     /// <summary>
     /// Based on <see href="https://github.com/brminnick/AsyncAwaitBestPractices"/>

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage
-    x:Class="NareiaApp.Views.MainPage"
+    x:Class="Maui.Feed.App.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
-    xmlns:pages="clr-namespace:NareiaApp.Views.Pages"
+    xmlns:pages="clr-namespace:Maui.Feed.App.Views.Pages"
     x:Name="_mainPage"
     android:TabbedPage.IsSmoothScrollEnabled="True"
     android:TabbedPage.IsSwipePagingEnabled="False"
@@ -16,7 +16,7 @@
         <Grid
             Padding="0,0,12,0"
             ColumnDefinitions="*, 42"
-            VerticalOptions="End">
+            VerticalOptions="Center">
 
             <Label
                 Grid.Column="0"

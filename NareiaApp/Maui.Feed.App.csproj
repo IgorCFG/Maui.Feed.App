@@ -6,16 +6,16 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-		<RootNamespace>NareiaApp</RootNamespace>
+		<RootNamespace>maui.feed.app</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>NareiaApp</ApplicationTitle>
+		<ApplicationTitle>FeedApp</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.nareiaapp</ApplicationId>
+		<ApplicationId>com.companyname.maui.feed.app</ApplicationId>
 		<ApplicationIdGuid>f4d6c04f-7b8b-469b-896c-b34daec25743</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -33,12 +33,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 		<MauiImage Include="Resources\AppIcon\instagram_colored.png" />
 		<MauiImage Include="Resources\AppIcon\ic_verified.png" />
 
     <!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -52,6 +50,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\mipmap-hdpi\appicon_background.png" />
+	  <None Remove="Platforms\Android\Resources\mipmap-mdpi\appicon_background.png" />
+	  <None Remove="Platforms\Android\Resources\mipmap-xhdpi\appicon_background.png" />
+	  <None Remove="Platforms\Android\Resources\mipmap-xxhdpi\appicon_background.png" />
+	  <None Remove="Platforms\Android\Resources\mipmap-xxxhdpi\appicon_background.png" />
+	  <None Remove="Platforms\Android\Resources\values\styles.xml" />
+	  <None Remove="Resources\AppIcon\appicon.png" />
+	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\AppIcon\ic_bookmark.svg" />
 	  <None Remove="Resources\AppIcon\ic_dislike.svg" />
 	  <None Remove="Resources\AppIcon\ic_like.svg" />
@@ -59,6 +65,12 @@
 	  <None Remove="Resources\AppIcon\ic_verified.png" />
 	  <None Remove="Resources\AppIcon\instagram_colored.png" />
 	  <None Remove="Resources\Raw\feed.json" />
+	  <None Remove="Resources\Splash\splash.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiIcon Include="Resources\AppIcon\appicon.svg" />
+	  <MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="64,64" Color="#FFFFFF" />
 	</ItemGroup>
 
 	<ItemGroup>

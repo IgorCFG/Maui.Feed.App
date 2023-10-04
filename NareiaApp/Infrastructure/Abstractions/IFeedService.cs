@@ -1,8 +1,8 @@
 ﻿#nullable enable
 
-using NareiaApp.Data.Models;
+using Maui.Feed.App.Data.Models;
 
-namespace NareiaApp.Abstractions.Services
+namespace Maui.Feed.App.Abstractions.Services
 {
     public interface IFeedService
     {

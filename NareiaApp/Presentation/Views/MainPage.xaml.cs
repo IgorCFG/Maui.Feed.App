@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Maui.Views;
-using NareiaApp.Abstractions.ViewModels;
-using NareiaApp.Extensions;
-using NareiaApp.Presentation.ViewModels;
-using NareiaApp.Presentation.Views.Custom;
+using Maui.Feed.App.Abstractions.ViewModels;
+using Maui.Feed.App.Extensions;
+using Maui.Feed.App.Presentation.ViewModels;
+using Maui.Feed.App.Presentation.Views.Custom;
 
-namespace NareiaApp.Views;
+namespace Maui.Feed.App.Views;
 
 public partial class MainPage : TabbedPage
 {

@@ -1,4 +1,4 @@
-﻿namespace NareiaApp.Presentation.Enums
+﻿namespace Maui.Feed.App.Presentation.Enums
 {
     public enum IdeasTab
     {

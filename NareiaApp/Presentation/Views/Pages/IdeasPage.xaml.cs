@@ -1,9 +1,9 @@
 using CommunityToolkit.Maui.Alerts;
-using NareiaApp.Data.Models;
-using NareiaApp.Extensions;
-using NareiaApp.Presentation.ViewModels;
+using Maui.Feed.App.Data.Models;
+using Maui.Feed.App.Extensions;
+using Maui.Feed.App.Presentation.ViewModels;
 
-namespace NareiaApp.Views.Pages;
+namespace Maui.Feed.App.Views.Pages;
 
 public partial class IdeasPage : ContentPage
 {

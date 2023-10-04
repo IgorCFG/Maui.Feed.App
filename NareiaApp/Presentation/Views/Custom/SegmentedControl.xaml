@@ -2,7 +2,7 @@
 <Frame 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="NareiaApp.Views.Custom.SegmentedControl"
+    x:Class="Maui.Feed.App.Views.Custom.SegmentedControl"
     BackgroundColor="#F5F6F8"
     CornerRadius="8"
     Padding="2"

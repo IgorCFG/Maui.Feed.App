@@ -1,6 +1,6 @@
-﻿using NareiaApp.Views;
+﻿using Maui.Feed.App.Views;
 
-namespace NareiaApp;
+namespace Maui.Feed.App;
 
 public partial class App : Application
 {

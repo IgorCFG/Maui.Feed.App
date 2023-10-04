@@ -1,6 +1,6 @@
-﻿using NareiaApp.Abstractions.Services;
+﻿using Maui.Feed.App.Abstractions.Services;
 
-namespace NareiaApp.Data.Services
+namespace Maui.Feed.App.Data.Services
 {
     class PreferencesService : IPreferencesService
     {

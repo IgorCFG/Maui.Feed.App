@@ -1,4 +1,4 @@
-﻿namespace NareiaApp.Abstractions.ViewModels
+﻿namespace Maui.Feed.App.Abstractions.ViewModels
 {
     public interface IMainPageViewModel : IBaseViewModel
     {
