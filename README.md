@@ -1,4 +1,4 @@
-# Description
+# About the project
 This is an example MAUI application I tried to use some features to improve my knowledge.
 
 On this project, we will have a lot of performance stuff to keep our infinite scroll beautiful we will also have custom controls, animations, popups, dependency injection, extensions, unit tests etc.
