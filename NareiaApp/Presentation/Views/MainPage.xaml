@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="NareiaApp.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:pages="clr-namespace:NareiaApp.Views.Pages"
+    x:Name="_mainPage"
+    android:TabbedPage.IsSmoothScrollEnabled="True"
+    android:TabbedPage.IsSwipePagingEnabled="False"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    Style="{DynamicResource MainPageStyle}">
+
+    <NavigationPage.TitleView>
+
+        <Grid
+            Padding="0,0,12,0"
+            ColumnDefinitions="*, 42"
+            VerticalOptions="End">
+
+            <Label
+                Grid.Column="0"
+                FontFamily="LatoBold"
+                FontSize="32"
+                Text="{Binding CurrentPage.Title, Source={x:Reference _mainPage}}"
+                TextColor="{DynamicResource Primary}" />
+
+            <ImageButton
+                Grid.Column="1"
+                Clicked="OnAccountSelectClicked"
+                HeightRequest="42"
+                Source="instagram_colored"
+                WidthRequest="42" />
+
+        </Grid>
+
+    </NavigationPage.TitleView>
+
+    <pages:IdeasPage />
+    <pages:StrategyPage />
+
+</TabbedPage>

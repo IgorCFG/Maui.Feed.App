@@ -46,13 +46,13 @@
     },
     {
       "id": 5,
-      "title": "Throwback to my vacation in Greece with my friends",
-      "description": "Vivamus lobortis aliquam eleifend. Nulla. #lorem #ipsum #loremipsum",
-      "photoUrl": "https://www.fotor.com/blog/wp-content/uploads/2017/09/photo-composition-e1597393995467-797x1024.jpg",
+      "title": "What is Image Processing? Everything you need to Know!",
+      "description": "Deep learning has had a tremendous impact on various fields of technology in the last few years. One of the hottest topics buzzing in this industry is computer vision, the ability for computers to understand images and videos on their own. Self-driving cars, biometrics and facial recognition all rely on computer vision to work. At the core of computer vision is image processing.",
+      "photoUrl": "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
       "user": {
-        "name": "dockey",
+        "name": "paulsis",
         "isVerified": true,
-        "pictureUrl": "https://pm1.aminoapps.com/7669/788096ac14e5b76eb20204fc6308321ec638fe9ar1-514-752v2_uhq.jpg"
+        "pictureUrl": "https://imgv3.fotor.com/images/slider-image/a-man-holding-a-camera-with-image-filter.jpg"
       }
     },
     {
@@ -83,20 +83,20 @@
       "description": "Vivamus lobortis aliquam eleifend. Nulla. #lorem #ipsum #loremipsum",
       "photoUrl": "https://www.fotor.com/blog/wp-content/uploads/2017/09/photo-composition-e1597393995467-797x1024.jpg",
       "user": {
-        "name": "dockey",
+        "name": "doguybuilder",
         "isVerified": true,
-        "pictureUrl": "https://pm1.aminoapps.com/7669/788096ac14e5b76eb20204fc6308321ec638fe9ar1-514-752v2_uhq.jpg"
+        "pictureUrl": "https://www.ahnegao.com.br/wp-content/uploads/2022/11/imgaleat-6ck-1.jpg"
       }
     },
     {
       "id": 9,
-      "title": "What is Lorem Ipsum?",
-      "description": "Proin sed scelerisque diam. Quisque. #ipsum #lorem #loremipsum",
-      "photoUrl": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+      "title": "What is Image Processing? Everything you need to Know!",
+      "description": "Deep learning has had a tremendous impact on various fields of technology in the last few years. One of the hottest topics buzzing in this industry is computer vision, the ability for computers to understand images and videos on their own. Self-driving cars, biometrics and facial recognition all rely on computer vision to work. At the core of computer vision is image processing.",
+      "photoUrl": "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
       "user": {
-        "name": "doguybuilder",
+        "name": "paulsis",
         "isVerified": true,
-        "pictureUrl": "https://www.ahnegao.com.br/wp-content/uploads/2022/11/imgaleat-6ck-1.jpg"
+        "pictureUrl": "https://imgv3.fotor.com/images/slider-image/a-man-holding-a-camera-with-image-filter.jpg"
       }
     },
     {

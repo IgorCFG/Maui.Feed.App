@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="NareiaApp.Presentation.Views.Custom.AccountSelectorPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Compat.Transformations"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="Transparent">
+
+    <Grid Padding="16,64" CompressedLayout.IsHeadless="True">
+
+        <Frame
+            Padding="0"
+            BackgroundColor="Transparent"
+            CornerRadius="16"
+            HasShadow="False"
+            HeightRequest="200">
+
+            <Grid
+                BackgroundColor="#F6F6F7"
+                ColumnDefinitions="8,48,160,24,8"
+                ColumnSpacing="4"
+                CompressedLayout.IsHeadless="True"
+                RowDefinitions="8,20,16,21,20,16,20,36,8"
+                RowSpacing="4"
+                VerticalOptions="Center">
+
+                <ffimageloading:CachedImage
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    DownsampleToViewSize="True"
+                    Source="profile1">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    FontFamily="LatoBold"
+                    FontSize="18"
+                    Text="Instagram"
+                    TextColor="{DynamicResource Primary}"
+                    VerticalOptions="End" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    FontFamily="LatoBold"
+                    FontSize="14"
+                    Text="igorc_"
+                    TextColor="{DynamicResource Tertiary}"
+                    VerticalOptions="Start" />
+
+                <Image
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="3"
+                    Source="ic_check" />
+
+                <BoxView
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    BackgroundColor="LightGray"
+                    HeightRequest="1"
+                    VerticalOptions="CenterAndExpand" />
+
+                <ffimageloading:CachedImage
+                    Grid.Row="4"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    DownsampleToViewSize="True"
+                    Source="profile2">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    FontFamily="LatoBold"
+                    FontSize="18"
+                    Text="TikTok"
+                    TextColor="{DynamicResource Primary}"
+                    VerticalOptions="End" />
+
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    FontFamily="LatoBold"
+                    FontSize="14"
+                    Text="crazy_dogu"
+                    TextColor="{DynamicResource Tertiary}"
+                    VerticalOptions="Start" />
+
+                <BoxView
+                    Grid.Row="6"
+                    Grid.ColumnSpan="5"
+                    BackgroundColor="#666666"
+                    HeightRequest="8"
+                    VerticalOptions="Center" />
+
+                <Label
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    FontFamily="LatoBold"
+                    FontSize="18"
+                    Text="Settings"
+                    TextColor="{DynamicResource Primary}"
+                    VerticalOptions="Center" />
+
+                <Image
+                    Grid.Row="7"
+                    Grid.Column="3"
+                    Source="ic_settings" />
+
+            </Grid>
+
+        </Frame>
+
+    </Grid>
+
+</toolkit:Popup>

@@ -28,12 +28,13 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<Configurations>Debug;Release;Mock</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-		<MauiImage Include="Resources\AppIcon\ic_instagram.png" />
+		<MauiImage Include="Resources\AppIcon\instagram_colored.png" />
 		<MauiImage Include="Resources\AppIcon\ic_verified.png" />
 
     <!-- Splash Screen -->
@@ -53,10 +54,11 @@
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\ic_bookmark.svg" />
 	  <None Remove="Resources\AppIcon\ic_dislike.svg" />
-	  <None Remove="Resources\AppIcon\ic_instagram.png" />
 	  <None Remove="Resources\AppIcon\ic_like.svg" />
 	  <None Remove="Resources\AppIcon\ic_refresh.svg" />
 	  <None Remove="Resources\AppIcon\ic_verified.png" />
+	  <None Remove="Resources\AppIcon\instagram_colored.png" />
+	  <None Remove="Resources\Raw\feed.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,28 +66,30 @@
 		<PackageReference Include="CompiledBindings.MAUI" Version="1.0.17.6" />
 		<PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Refit" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Custom\SegmentedControl.xaml.cs">
+	  <Compile Update="Presentation\Views\Custom\SegmentedControl.xaml.cs">
 	    <DependentUpon>SegmentedControl.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Pages\StrategyPage.xaml.cs">
+	  <Compile Update="Presentation\Views\Pages\StrategyPage.xaml.cs">
 	    <DependentUpon>StrategyPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Pages\IdeasPage.xaml.cs">
+	  <Compile Update="Presentation\Views\Pages\IdeasPage.xaml.cs">
 	    <DependentUpon>IdeasPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Custom\FeedItemView.xaml">
+	  <MauiXaml Update="Presentation\Views\Custom\AccountSelectorPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Pages\StrategyPage.xaml">
+	  <MauiXaml Update="Presentation\Views\Pages\StrategyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Pages\IdeasPage.xaml">
+	  <MauiXaml Update="Presentation\Views\Pages\IdeasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

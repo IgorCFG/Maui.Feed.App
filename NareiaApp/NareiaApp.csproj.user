@@ -8,13 +8,13 @@
     <DefaultDevice>pixel_5_-_api_30</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Views\Custom\FeedItemView.xaml">
+    <MauiXaml Update="Presentation\Views\Custom\AccountSelectorPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\Pages\StrategyPage.xaml">
+    <MauiXaml Update="Presentation\Views\Pages\StrategyPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\Pages\IdeasPage.xaml">
+    <MauiXaml Update="Presentation\Views\Pages\IdeasPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

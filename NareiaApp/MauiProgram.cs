@@ -4,10 +4,13 @@ using Microsoft.Extensions.Logging;
 using NareiaApp.Abstractions.Repositories;
 using NareiaApp.Abstractions.Services;
 using NareiaApp.Abstractions.ViewModels;
+using NareiaApp.Data.Services;
+using NareiaApp.Infrastructure.Abstractions;
+using NareiaApp.Infrastructure.Constants;
+using NareiaApp.Presentation.ViewModels;
 using NareiaApp.Repositories;
-using NareiaApp.Services;
-using NareiaApp.ViewModels;
 using NareiaApp.Views;
+using Refit;
 
 namespace NareiaApp;
 
@@ -29,7 +32,7 @@ public static class MauiProgram
                 fonts.AddFont("Lato-Bold.ttf", "LatoBold");
             });
 
-#if DEBUG
+#if MOCK
 		builder.Logging.AddDebug();
 #endif
 
@@ -38,13 +41,18 @@ public static class MauiProgram
 
     public static MauiAppBuilder RegisterDependencies(this MauiAppBuilder mauiAppBuilder)
     {
-#if DEBUG
-        mauiAppBuilder.Services.AddScoped<IFeedRepository, MockFeedRepository>();
+
+#if MOCK
+        mauiAppBuilder.Services.AddSingleton<IFeedRepository, MockFeedRepository>();
 #else
-        mauiAppBuilder.Services.AddScoped<IFeedRepository ,IApiFeedRepository>();
+        var apiData = RestService.For<IFeedRepository>(Constants.BASE_URL);
+
+		mauiAppBuilder.Services.AddSingleton(apiData);
 #endif
 
-        mauiAppBuilder.Services.AddScoped<IFeedService, FeedService>();
+        mauiAppBuilder.Services.AddSingleton<IFeedService, FeedService>();
+        mauiAppBuilder.Services.AddSingleton<IFavoritesService, FavoritesService>();
+        mauiAppBuilder.Services.AddSingleton<IPreferencesService, PreferencesService>();
 
 		mauiAppBuilder.Services.AddScoped<MainPage>();
 		mauiAppBuilder.Services.AddScoped<IMainPageViewModel, MainPageViewModel>();
