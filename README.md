@@ -23,7 +23,7 @@ Still about performance, I used compressedLayout too, basically it will remove t
 [MORE ABOUT](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/layout-compression)
 
 #### ConfigureAwait(false)
-This task extension helps a lot with deadlocks or bad performances when the topic is Thread, that will say to your system "don't do this job in this thread so it will remove your heavy job from MainThread or an used Thread and send to another, it's great when your task is HEAVY or to remove tasks from MainThread.
+This task extension helps a lot with deadlocks or bad performances when the topic is Thread, that will say to your system "don't do this job in this thread" so it will remove your heavy job from MainThread or an used Thread and send to another, it's great when your task is HEAVY or to remove tasks from MainThread.
 [MORE ABOUT](https://medium.com/bynder-tech/c-why-you-should-use-configureawait-false-in-your-library-code-d7837dce3d7f)
 
 #### Nullable
