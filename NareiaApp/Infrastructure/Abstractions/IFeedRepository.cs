@@ -8,7 +8,7 @@ namespace Maui.Feed.App.Abstractions.Repositories
 #if MOCK
         Task<FeedCollection> GetDailyFeedAsync();
 #else
-        [Get("/IgorCFG/Maui.Feed.App/main/Maui.Feed.App/Resources/Raw/feed.json")]
+        [Get("/IgorCFG/Maui.Feed.App/main/NareiaApp/Resources/Raw/feed.json")]
         Task<FeedCollection> GetDailyFeedAsync();
 #endif
     }
